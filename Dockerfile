@@ -1,4 +1,4 @@
-FROM nix-docker.registry.twcstorage.ru/ci/build/common-build:0.1.0@sha256:d7c61f3bc8d5fe85a16aa07e773ecbce9b24c1f7be3bb4fb5d08fcacdf2520a4
+FROM nix-docker.registry.twcstorage.ru/ci/build/common-build:1.0.0000@sha256:d16f74f1c0c7d968960285a069a6b3aa326d44a73ebe6c23f0be6ce891bd5939
 
 LABEL org.opencontainers.image.authors="wizardy.oni@gmail.com"
 
@@ -16,7 +16,7 @@ RUN curl -kLso nodejs_${NODEJS_MAJOR_VERSION}.sh "https://rpm.nodesource.com/set
                 --disablerepo=nodesource-nsolid install nodejs-${NODEJS_VERSION} \
     && node --version \
     && npm --version \
-    && microdnf -y clean all \
+    && microdnf clean all \
     && rm -rf /var/cache/dnf /var/cache/yum
 
 USER jenkins
